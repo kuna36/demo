@@ -18,6 +18,7 @@ import { QuickEnquiryModal } from './components/QuickEnquiryModal.tsx';
 import { ScrollReveal } from './components/ScrollReveal.tsx';
 import { LogoEntranceAnimation } from './components/LogoEntranceAnimation.tsx';
 import { LoginPage } from './components/LoginPage.tsx';
+import { MobileBottomBar } from './components/MobileBottomBar.tsx';
 import { ThemeProvider, useTheme } from './context/ThemeContext.tsx';
 import {
   INITIAL_SHOP_INFO,
@@ -78,8 +79,8 @@ function AppContent() {
         onOpenLogin={() => setShowLogin(true)}
       />
 
-      {/* Main Content Sections */}
-      <main className="flex-1">
+      {/* Main Content Sections with mobile bottom bar offset */}
+      <main className="flex-1 pb-20 sm:pb-0">
         {/* 2. Cinematic 3D Hero */}
         <HeroSection
           onScrollTo={handleScrollTo}
@@ -169,8 +170,14 @@ function AppContent() {
         defaultSubject={modalSubject}
       />
 
-      {/* Floating WhatsApp Action Button */}
-      <aside aria-label="Quick contact" className="fixed bottom-6 right-6 z-40">
+      {/* Mobile Sticky Quick Action Bar */}
+      <MobileBottomBar
+        shopInfo={shopInfo}
+        onOpenEnquiryModal={() => handleOpenEnquiryModal('Express Mobile Enquiry')}
+      />
+
+      {/* Floating WhatsApp Action Button (Tablet & Desktop only, mobile has bottom bar) */}
+      <aside aria-label="Quick contact" className="hidden sm:block fixed bottom-6 right-6 z-40">
         <button
           type="button"
           onClick={() => handleOpenEnquiryModal('Quick WhatsApp Chat')}

@@ -52,7 +52,7 @@ export function ContactSection({ shopInfo, onUpdateContactInfo, prefilledSubject
       `Hello SRIVIGNESH XEROX & ONLINE WORKS, I would like to enquire about: ${serviceCategory}. Details: ${message || 'General enquiry'}. From: ${name || 'Customer'}`
     );
     const cleanNumber = shopInfo.whatsappPhone.replace(/[^0-9]/g, '');
-    window.open(`https://wa.me/${cleanNumber}?text=${text}`, '_blank');
+    window.location.href = `https://wa.me/${cleanNumber}?text=${text}`;
   };
 
   const handleSavePhone = () => {

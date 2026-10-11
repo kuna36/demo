@@ -64,8 +64,8 @@ export function AccessoriesSection({ products, onEnquireProduct }: AccessoriesSe
           </div>
         </div>
 
-        {/* Category Filter Tabs */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1">
+        {/* Category Filter Tabs - Smooth horizontal swipe */}
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 flex-nowrap max-w-full">
           {categories.map((cat) => {
             const isActive = selectedCategory === cat;
             return (
@@ -73,7 +73,7 @@ export function AccessoriesSection({ products, onEnquireProduct }: AccessoriesSe
                 key={cat}
                 type="button"
                 onClick={() => setSelectedCategory(cat)}
-                className="px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap"
+                className="px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap shrink-0"
                 style={{
                   backgroundColor: isActive ? accentConfig.primary : isDark ? '#131926' : '#ffffff',
                   color: isActive ? accentConfig.contrastText : isDark ? '#D1D5DB' : '#374151',
@@ -87,31 +87,31 @@ export function AccessoriesSection({ products, onEnquireProduct }: AccessoriesSe
         </div>
 
         {/* Featured Visual Spotlight */}
-        <div className="relative rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 h-64 sm:h-72">
+        <div className="relative rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 h-52 sm:h-72">
           <img
             src={ASSET_IMAGES.accessories}
             alt="Mobile accessories collection on display"
             className="w-full h-full object-cover object-center"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#101827]/90 via-[#101827]/60 to-transparent p-6 sm:p-8 flex flex-col justify-center max-w-lg">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#101827]/90 via-[#101827]/60 to-transparent p-4 sm:p-8 flex flex-col justify-center max-w-lg">
             <span
-              className="text-xs uppercase font-semibold tracking-wider transition-colors"
+              className="text-[11px] sm:text-xs uppercase font-semibold tracking-wider transition-colors"
               style={{ color: accentConfig.light }}
             >
               Ready in Stock
             </span>
-            <h3 className="text-xl sm:text-2xl font-bold text-white mt-1">
+            <h3 className="text-lg sm:text-2xl font-bold text-white mt-1">
               Quality Tested Accessories
             </h3>
-            <p className="text-xs text-neutral-300 mt-2 leading-relaxed">
+            <p className="text-xs text-neutral-300 mt-1.5 leading-relaxed line-clamp-2 sm:line-clamp-none">
               Fast charging cables, certified adapters, protective tempered glass with on-the-spot bubble-free application, and audio gear.
             </p>
           </div>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredProducts.map((product) => (
             <div
               key={product.id}

@@ -78,13 +78,13 @@ export function BusinessIntro({ onScrollTo }: BusinessIntroProps) {
         </div>
 
         {/* 4 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {pillars.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.title}
-                className={`rounded-xl p-6 border transition-all flex flex-col justify-between ${
+                className={`rounded-xl p-5 sm:p-6 border transition-all flex flex-col justify-between ${
                   isDark
                     ? 'bg-[#131926] border-neutral-800 shadow-md hover:border-neutral-700'
                     : 'bg-white border-neutral-200 shadow-sm hover:shadow-md'

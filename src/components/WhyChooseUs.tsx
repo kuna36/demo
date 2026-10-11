@@ -45,13 +45,13 @@ export function WhyChooseUs() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {reasons.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.title}
-                className={`rounded-xl p-6 border transition-all space-y-3 ${
+                className={`rounded-xl p-5 sm:p-6 border transition-all space-y-3 ${
                   isDark
                     ? 'bg-[#131926] border-neutral-800 shadow-md'
                     : 'bg-white border-neutral-200/90 shadow-sm'

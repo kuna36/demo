@@ -368,7 +368,7 @@ export function ThreeHeroScene({
 
   return (
     <div
-      className="relative w-full h-[480px] lg:h-[560px] rounded-2xl overflow-hidden bg-gradient-to-br from-[#101827] via-[#171A21] to-[#0D121D] border border-neutral-800 shadow-2xl flex items-center justify-center group"
+      className="relative w-full h-[360px] sm:h-[460px] lg:h-[560px] rounded-2xl overflow-hidden bg-gradient-to-br from-[#101827] via-[#171A21] to-[#0D121D] border border-neutral-800 shadow-2xl flex items-center justify-center group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -376,8 +376,8 @@ export function ThreeHeroScene({
       {viewMode === '3d' && webglSupported ? (
         <div
           ref={mountRef}
-          className="w-full h-full cursor-grab active:cursor-grabbing select-none"
-          title="Move your mouse or drag horizontally to explore 3D spatial perspective"
+          className="w-full h-full cursor-grab active:cursor-grabbing select-none touch-pan-y"
+          title="Move your finger or mouse to explore 3D spatial perspective"
         />
       ) : (
         /* Pure Ultra-HD Studio Photography Mode */
@@ -392,34 +392,96 @@ export function ThreeHeroScene({
         </div>
       )}
 
-      {/* Top Floating Control Pill */}
-      <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-3 pointer-events-auto z-10">
-        <div className="flex items-center gap-2 bg-[#101827]/85 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-neutral-700/70 text-xs text-white shadow-lg">
-          <Sparkles className="w-3.5 h-3.5" style={{ color: accentConfig.primary }} />
-          <span className="font-semibold text-xs">
-            {viewMode === '3d' ? '3D Spatial Interactive Stage' : 'Ultra-HD Commercial View'}
+      {/* Top Floating Control Pill - Responsive on Mobile */}
+      <div className="absolute top-2.5 sm:top-4 left-2.5 sm:left-4 right-2.5 sm:right-4 flex items-center justify-between gap-2 pointer-events-auto z-10">
+        <div className="flex items-center gap-1.5 sm:gap-2 bg-[#101827]/90 backdrop-blur-md px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-xl border border-neutral-700/70 text-[11px] sm:text-xs text-white shadow-lg">
+          <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 shrink-0" style={{ color: accentConfig.primary }} />
+          <span className="font-semibold truncate">
+            {viewMode === '3d' ? '3D Stage' : 'Studio Photo'}
           </span>
-          <span className="text-neutral-500">·</span>
-          <span className="text-[11px] text-neutral-400">Gemini Master Visual</span>
+          <span className="text-neutral-500 hidden xs:inline">·</span>
+          <span className="text-[10px] text-neutral-400 hidden xs:inline">Gemini Master Visual</span>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
           {webglSupported && (
             <button
               type="button"
               onClick={() => setViewMode(viewMode === '3d' ? 'photo' : '3d')}
-              className="px-3 py-1.5 rounded-xl border border-neutral-700 bg-[#101827]/85 backdrop-blur-md text-xs font-semibold text-neutral-200 hover:text-white transition-all flex items-center gap-1.5 shadow-lg active:scale-95"
+              className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl border border-neutral-700 bg-[#101827]/90 backdrop-blur-md text-[11px] sm:text-xs font-semibold text-neutral-200 hover:text-white transition-all flex items-center gap-1 shadow-lg active:scale-95"
               title="Switch between 3D Spatial Parallax and Direct HD Studio Image"
             >
-              <Layers className="w-3.5 h-3.5" style={{ color: accentConfig.primary }} />
-              <span>{viewMode === '3d' ? 'Switch to Studio Photo' : 'Enter 3D Stage'}</span>
+              <Layers className="w-3 sm:w-3.5 h-3 sm:h-3.5" style={{ color: accentConfig.primary }} />
+              <span>{viewMode === '3d' ? 'Photo View' : '3D View'}</span>
             </button>
           )}
         </div>
       </div>
 
-      {/* Interactive 3D Camera Inspector Badges */}
-      <div className="absolute bottom-4 left-4 right-4 pointer-events-auto z-10 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+      {/* Mobile-Only Compact Hotspot Segmented Selector (Doesn't obstruct 3D visual) */}
+      <div className="sm:hidden absolute bottom-2.5 left-2.5 right-2.5 pointer-events-auto z-10">
+        <div className="flex items-center justify-between p-1 rounded-xl bg-[#101827]/90 backdrop-blur-md border border-neutral-800 shadow-xl gap-1">
+          <button
+            type="button"
+            onClick={() => {
+              setActiveZone(activeZone === 'xerox' ? 'all' : 'xerox');
+              onExploreServices();
+            }}
+            className={`flex-1 py-1.5 px-2 rounded-lg text-[10px] font-bold text-center transition-all truncate ${
+              activeZone === 'xerox'
+                ? 'text-white shadow-sm'
+                : 'text-neutral-400 hover:text-neutral-200'
+            }`}
+            style={{
+              backgroundColor: activeZone === 'xerox' ? accentConfig.primary : 'transparent',
+              color: activeZone === 'xerox' ? accentConfig.contrastText : undefined,
+            }}
+          >
+            01. Xerox
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              setActiveZone(activeZone === 'accessories' ? 'all' : 'accessories');
+              onExploreAccessories();
+            }}
+            className={`flex-1 py-1.5 px-2 rounded-lg text-[10px] font-bold text-center transition-all truncate ${
+              activeZone === 'accessories'
+                ? 'text-white shadow-sm'
+                : 'text-neutral-400 hover:text-neutral-200'
+            }`}
+            style={{
+              backgroundColor: activeZone === 'accessories' ? accentConfig.primary : 'transparent',
+              color: activeZone === 'accessories' ? accentConfig.contrastText : undefined,
+            }}
+          >
+            02. Mobile Gear
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              setActiveZone(activeZone === 'jewellery' ? 'all' : 'jewellery');
+              onExploreJewellery();
+            }}
+            className={`flex-1 py-1.5 px-2 rounded-lg text-[10px] font-bold text-center transition-all truncate ${
+              activeZone === 'jewellery'
+                ? 'text-white shadow-sm'
+                : 'text-neutral-400 hover:text-neutral-200'
+            }`}
+            style={{
+              backgroundColor: activeZone === 'jewellery' ? accentConfig.primary : 'transparent',
+              color: activeZone === 'jewellery' ? accentConfig.contrastText : undefined,
+            }}
+          >
+            03. Jewellery
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop / Tablet Full Inspector Cards */}
+      <div className="hidden sm:grid absolute bottom-4 left-4 right-4 pointer-events-auto z-10 grid-cols-3 gap-2.5">
         {/* Hotspot 1: Xerox & Printing Hub */}
         <button
           type="button"

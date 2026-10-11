@@ -89,13 +89,13 @@ export function LoginPage({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-      <div className="bg-[#101827] border border-neutral-800 text-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden my-8 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-md flex items-center justify-center p-2.5 sm:p-4">
+      <div className="bg-[#101827] border border-neutral-800 text-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden my-3 sm:my-8 animate-in fade-in duration-200">
         {/* Top Header */}
-        <div className="p-4 sm:p-6 border-b border-neutral-800 flex items-center justify-between bg-[#171A21]">
-          <div className="flex items-center gap-3">
+        <div className="p-3.5 sm:p-6 border-b border-neutral-800 flex items-center justify-between bg-[#171A21] gap-2">
+          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
             <div
-              className="w-10 h-10 rounded-full overflow-hidden border p-0.5"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border p-0.5 shrink-0"
               style={{
                 borderColor: accentConfig.primary,
                 background: `linear-gradient(135deg, ${accentConfig.primary}, ${accentConfig.light})`,
@@ -108,20 +108,20 @@ export function LoginPage({
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div>
-              <h2 className="text-base font-bold text-white flex items-center gap-2">
-                <span>SRIVIGNESH XEROX</span>
+            <div className="min-w-0">
+              <h2 className="text-sm sm:text-base font-bold text-white flex items-center gap-1.5 sm:gap-2 truncate">
+                <span className="truncate">SRIVIGNESH XEROX</span>
                 <span
-                  className="text-[10px] px-1.5 py-0.5 rounded font-mono font-semibold"
+                  className="text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded font-mono font-semibold shrink-0"
                   style={{
                     backgroundColor: accentConfig.primary,
                     color: accentConfig.contrastText,
                   }}
                 >
-                  {isAuthenticated ? 'ADMIN PORTAL' : 'OWNER LOGIN'}
+                  {isAuthenticated ? 'ADMIN' : 'PORTAL'}
                 </span>
               </h2>
-              <p className="text-xs text-neutral-400">
+              <p className="text-[11px] sm:text-xs text-neutral-400 truncate">
                 {isAuthenticated
                   ? 'Manage business details, verified prices, and inventory'
                   : 'Client Administration & Verification Portal'}
@@ -132,7 +132,7 @@ export function LoginPage({
           <button
             type="button"
             onClick={onClose}
-            className="p-2 text-neutral-400 hover:text-white rounded-lg hover:bg-neutral-800 transition-colors"
+            className="p-1.5 sm:p-2 text-neutral-400 hover:text-white rounded-lg hover:bg-neutral-800 transition-colors shrink-0"
             title="Return to website"
           >
             <X className="w-5 h-5" />
@@ -141,16 +141,16 @@ export function LoginPage({
 
         {/* Login Form View */}
         {!isAuthenticated ? (
-          <div className="p-6 sm:p-8 space-y-6">
-            <div className="text-center max-w-sm mx-auto space-y-2">
+          <div className="p-4 sm:p-8 space-y-5 sm:space-y-6">
+            <div className="text-center max-w-sm mx-auto space-y-1.5">
               <div
-                className="w-12 h-12 bg-[#171A21] border border-neutral-700 rounded-xl flex items-center justify-center mx-auto transition-colors"
+                className="w-11 h-11 sm:w-12 sm:h-12 bg-[#171A21] border border-neutral-700 rounded-xl flex items-center justify-center mx-auto transition-colors"
                 style={{ color: accentConfig.primary }}
               >
-                <Lock className="w-6 h-6" />
+                <Lock className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <h3 className="text-lg font-bold text-white">Owner & Staff Sign In</h3>
-              <p className="text-xs text-neutral-400 leading-relaxed">
+              <h3 className="text-base sm:text-lg font-bold text-white">Owner & Staff Sign In</h3>
+              <p className="text-[11px] sm:text-xs text-neutral-400 leading-relaxed">
                 Log in to verify business contact details, customize service listings, and set confirmed counter prices for the demo presentation.
               </p>
             </div>
@@ -239,12 +239,12 @@ export function LoginPage({
               </div>
             )}
 
-            {/* Navigation Tabs */}
-            <div className="flex border-b border-neutral-800 gap-4 text-xs font-medium">
+            {/* Navigation Tabs - Mobile scrollable */}
+            <div className="flex border-b border-neutral-800 gap-2 sm:gap-4 text-xs font-medium overflow-x-auto no-scrollbar flex-nowrap whitespace-nowrap pb-1">
               <button
                 type="button"
                 onClick={() => setActiveTab('profile')}
-                className="pb-2.5 transition-colors border-b-2 flex items-center gap-1.5"
+                className="pb-2.5 transition-colors border-b-2 flex items-center gap-1.5 shrink-0"
                 style={{
                   borderColor: activeTab === 'profile' ? accentConfig.primary : 'transparent',
                   color: activeTab === 'profile' ? accentConfig.primary : '#9CA3AF',
@@ -257,7 +257,7 @@ export function LoginPage({
               <button
                 type="button"
                 onClick={() => setActiveTab('accessories')}
-                className="pb-2.5 transition-colors border-b-2 flex items-center gap-1.5"
+                className="pb-2.5 transition-colors border-b-2 flex items-center gap-1.5 shrink-0"
                 style={{
                   borderColor: activeTab === 'accessories' ? accentConfig.primary : 'transparent',
                   color: activeTab === 'accessories' ? accentConfig.primary : '#9CA3AF',
@@ -270,7 +270,7 @@ export function LoginPage({
               <button
                 type="button"
                 onClick={() => setActiveTab('jewellery')}
-                className="pb-2.5 transition-colors border-b-2 flex items-center gap-1.5"
+                className="pb-2.5 transition-colors border-b-2 flex items-center gap-1.5 shrink-0"
                 style={{
                   borderColor: activeTab === 'jewellery' ? accentConfig.primary : 'transparent',
                   color: activeTab === 'jewellery' ? accentConfig.primary : '#9CA3AF',

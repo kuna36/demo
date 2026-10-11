@@ -45,18 +45,18 @@ export function QuickEnquiryModal({
       `Hello SRIVIGNESH XEROX & ONLINE WORKS,\nI would like to enquire about: ${subject}\nDetails: ${message || 'Please share details and availability.'}\nFrom: ${name || 'Customer'} (${phone || 'N/A'})`
     );
     const cleanNumber = shopInfo.whatsappPhone.replace(/[^0-9]/g, '');
-    window.open(`https://wa.me/${cleanNumber}?text=${text}`, '_blank');
+    window.location.href = `https://wa.me/${cleanNumber}?text=${text}`;
     onClose();
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-[#171A21] text-white w-full max-w-lg rounded-2xl border border-neutral-800 shadow-2xl overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="bg-[#171A21] text-white w-full max-w-lg rounded-2xl border border-neutral-800 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
         {/* Header */}
-        <div className="p-5 border-b border-neutral-800 flex items-center justify-between">
+        <div className="p-3.5 sm:p-5 border-b border-neutral-800 flex items-center justify-between shrink-0">
           <div>
-            <h3 className="text-base font-bold text-white">Send Quick Enquiry</h3>
-            <span className="text-xs" style={{ color: accentConfig.light }}>SRIVIGNESH XEROX & ONLINE WORKS</span>
+            <h3 className="text-sm sm:text-base font-bold text-white">Send Quick Enquiry</h3>
+            <span className="text-[11px] sm:text-xs" style={{ color: accentConfig.light }}>SRIVIGNESH XEROX & ONLINE WORKS</span>
           </div>
           <button
             type="button"
@@ -68,7 +68,7 @@ export function QuickEnquiryModal({
         </div>
 
         {/* Body */}
-        <div className="p-6 space-y-4">
+        <div className="p-4 sm:p-6 space-y-4 overflow-y-auto flex-1">
           {validatedState ? (
             <div className="space-y-4">
               <div className="flex items-center gap-2" style={{ color: accentConfig.primary }}>

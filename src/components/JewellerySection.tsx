@@ -40,8 +40,8 @@ export function JewellerySection({ jewellery, onEnquireJewellery }: JewellerySec
             </p>
           </div>
 
-          {/* Category Tabs */}
-          <div className="flex items-center gap-1.5 p-1 bg-neutral-900 border border-neutral-800 rounded-lg overflow-x-auto shrink-0">
+          {/* Category Tabs - Mobile swipeable */}
+          <div className="flex items-center gap-1.5 p-1 bg-neutral-900 border border-neutral-800 rounded-xl overflow-x-auto no-scrollbar flex-nowrap shrink-0 max-w-full">
             {categories.map((cat) => {
               const isActive = activeCategory === cat;
               return (
@@ -49,7 +49,7 @@ export function JewellerySection({ jewellery, onEnquireJewellery }: JewellerySec
                   key={cat}
                   type="button"
                   onClick={() => setActiveCategory(cat)}
-                  className="px-3.5 py-1.5 text-xs font-semibold rounded-md transition-all whitespace-nowrap"
+                  className="px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap shrink-0"
                   style={{
                     backgroundColor: isActive ? accentConfig.primary : 'transparent',
                     color: isActive ? accentConfig.contrastText : '#9CA3AF',
@@ -63,31 +63,31 @@ export function JewellerySection({ jewellery, onEnquireJewellery }: JewellerySec
         </div>
 
         {/* Hero Editorial Display Card */}
-        <div className="relative rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 h-72 sm:h-80">
+        <div className="relative rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 h-56 sm:h-80">
           <img
             src={ASSET_IMAGES.jewellery}
             alt="Artisanal jewellery collection showcase"
             className="w-full h-full object-cover object-center"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#171A21]/95 via-[#171A21]/60 to-transparent p-6 sm:p-10 flex flex-col justify-center max-w-lg">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#171A21]/95 via-[#171A21]/60 to-transparent p-4 sm:p-10 flex flex-col justify-center max-w-lg">
             <span
-              className="text-xs uppercase tracking-wider font-semibold transition-colors"
+              className="text-[11px] sm:text-xs uppercase tracking-wider font-semibold transition-colors"
               style={{ color: accentConfig.light }}
             >
               Curated Fashion & Festive Wear
             </span>
-            <h3 className="text-2xl sm:text-3xl font-display font-medium text-white mt-2 leading-tight">
-              Elegance for Every Special Moment
+            <h3 className="text-xl sm:text-3xl font-display font-medium text-white mt-1.5 leading-tight">
+              Elegance for Every Moment
             </h3>
-            <p className="text-xs text-neutral-300 mt-2 leading-relaxed">
+            <p className="text-xs text-neutral-300 mt-1.5 leading-relaxed line-clamp-2 sm:line-clamp-none">
               Gold-tone micro-plated bangles, sparkling cubic zirconia drops, and ethnic choker sets available for walk-in selection.
             </p>
           </div>
         </div>
 
         {/* Jewellery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredItems.map((item) => (
             <div
               key={item.id}

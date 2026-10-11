@@ -52,3 +52,13 @@
 .font-sans-ui {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
+
+/* Mobile-friendly smooth horizontal touch scroll without ugly scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}

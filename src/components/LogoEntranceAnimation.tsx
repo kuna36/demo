@@ -76,7 +76,7 @@ export function LogoEntranceAnimation({ onComplete, target = 'site' }: LogoEntra
 
           {/* Logo image container */}
           <div
-            className={`relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden p-1 transition-all duration-700 ${
+            className={`relative w-24 h-24 sm:w-36 sm:h-36 rounded-full overflow-hidden p-1 transition-all duration-700 ${
               phase === 'intro'
                 ? 'scale-50 opacity-0 rotate-[-20deg]'
                 : 'scale-100 opacity-100 rotate-0'
@@ -102,37 +102,37 @@ export function LogoEntranceAnimation({ onComplete, target = 'site' }: LogoEntra
 
         {/* Brand Typography Reveal */}
         <div
-          className={`space-y-2 transition-all duration-700 ${
+          className={`space-y-1.5 sm:space-y-2 transition-all duration-700 ${
             phase === 'intro' ? 'translate-y-4 opacity-0' : 'translate-y-0 opacity-100'
           }`}
         >
           <div
-            className="flex items-center justify-center gap-1.5 text-xs tracking-widest uppercase font-semibold"
+            className="flex items-center justify-center gap-1.5 text-[10px] sm:text-xs tracking-widest uppercase font-semibold"
             style={{ color: accentConfig.light }}
           >
-            <Sparkles className="w-3.5 h-3.5" />
+            <Sparkles className="w-3 h-3" />
             <span>KK GROUP Official Showcase</span>
-            <Sparkles className="w-3.5 h-3.5" />
+            <Sparkles className="w-3 h-3" />
           </div>
 
-          <h1 className="text-2xl sm:text-3xl font-display font-bold text-white tracking-wider">
+          <h1 className="text-xl sm:text-3xl font-display font-bold text-white tracking-wider">
             SRIVIGNESH
           </h1>
 
           <p
-            className="text-xs sm:text-sm font-sans tracking-[0.25em] uppercase font-semibold"
+            className="text-[11px] sm:text-sm font-sans tracking-[0.2em] uppercase font-semibold"
             style={{ color: accentConfig.primary }}
           >
             Xerox & Online Works
           </p>
 
-          <p className="text-xs text-neutral-400 pt-1">
+          <p className="text-[11px] sm:text-xs text-neutral-400 pt-0.5">
             Digital Services · Everyday Accessories · Jewellery
           </p>
         </div>
 
         {/* Progress loader */}
-        <div className="mt-8 w-48 space-y-2">
+        <div className="mt-6 sm:mt-8 w-44 sm:w-48 space-y-2">
           <div className="h-1 w-full bg-neutral-800 rounded-full overflow-hidden">
             <div
               className="h-full transition-all duration-100 rounded-full"
@@ -152,9 +152,10 @@ export function LogoEntranceAnimation({ onComplete, target = 'site' }: LogoEntra
         <button
           type="button"
           onClick={onComplete}
-          className="mt-6 px-4 py-1.5 rounded-full border border-neutral-800 text-xs text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5"
+          className="mt-5 sm:mt-6 px-5 py-2 rounded-full border border-neutral-700 text-xs text-neutral-300 hover:text-white transition-all flex items-center gap-1.5 active:scale-95 shadow-md"
           style={{
-            borderColor: `${accentConfig.primary}40`,
+            borderColor: `${accentConfig.primary}60`,
+            backgroundColor: '#101827',
           }}
         >
           <span>{target === 'login' ? 'Proceed to Login' : 'Enter Website'}</span>

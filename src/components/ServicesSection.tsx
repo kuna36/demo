@@ -38,8 +38,8 @@ export function ServicesSection({ services, onEnquireService }: ServicesSectionP
             </p>
           </div>
 
-          {/* Interactive filter tabs */}
-          <div className={`flex items-center gap-1.5 p-1 rounded-lg overflow-x-auto shrink-0 border ${
+          {/* Interactive filter tabs - Mobile scrollable */}
+          <div className={`flex items-center gap-1.5 p-1 rounded-xl overflow-x-auto no-scrollbar shrink-0 border max-w-full ${
             isDark ? 'bg-neutral-900 border-neutral-800' : 'bg-neutral-100 border-neutral-200'
           }`}>
             {(['all', 'xerox', 'printing', 'digital', 'finishing'] as const).map((cat) => {
@@ -49,7 +49,7 @@ export function ServicesSection({ services, onEnquireService }: ServicesSectionP
                   key={cat}
                   type="button"
                   onClick={() => setFilter(cat)}
-                  className="px-3 py-1.5 text-xs font-semibold rounded-md transition-all whitespace-nowrap capitalize"
+                  className="px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap capitalize shrink-0"
                   style={{
                     backgroundColor: isActive ? accentConfig.primary : undefined,
                     color: isActive ? accentConfig.contrastText : undefined,
@@ -63,42 +63,42 @@ export function ServicesSection({ services, onEnquireService }: ServicesSectionP
         </div>
 
         {/* Visual Showcase Banner: 2 Generated High-Res Images */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="relative rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 group h-64 sm:h-72">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div className="relative rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 group h-52 sm:h-72">
             <img
               src={ASSET_IMAGES.xerox}
               alt="High-speed commercial xerox and laser printing workstation"
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#101827]/90 via-[#101827]/30 to-transparent p-6 flex flex-col justify-end">
-              <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: accentConfig.light }}>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#101827]/90 via-[#101827]/30 to-transparent p-4 sm:p-6 flex flex-col justify-end">
+              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider" style={{ color: accentConfig.light }}>
                 Printing & Copying Hub
               </span>
-              <h3 className="text-lg font-bold text-white mt-1">Industrial High-Speed Duplication</h3>
-              <p className="text-xs text-neutral-300 mt-1 max-w-md">Single sheets to hundreds of copies with clean black text and vibrant laser color.</p>
+              <h3 className="text-base sm:text-lg font-bold text-white mt-1">Industrial High-Speed Duplication</h3>
+              <p className="text-xs text-neutral-300 mt-1 max-w-md line-clamp-2 sm:line-clamp-none">Single sheets to hundreds of copies with clean black text and vibrant laser color.</p>
             </div>
           </div>
 
-          <div className="relative rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 group h-64 sm:h-72">
+          <div className="relative rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 group h-52 sm:h-72">
             <img
               src={ASSET_IMAGES.digital}
               alt="Document optical scanning and online internet services"
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#101827]/90 via-[#101827]/30 to-transparent p-6 flex flex-col justify-end">
-              <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: accentConfig.light }}>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#101827]/90 via-[#101827]/30 to-transparent p-4 sm:p-6 flex flex-col justify-end">
+              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider" style={{ color: accentConfig.light }}>
                 Digital & Internet Services
               </span>
-              <h3 className="text-lg font-bold text-white mt-1">Scanning, Portal Forms & Certificates</h3>
-              <p className="text-xs text-neutral-300 mt-1 max-w-md">Digital document conversion, government portal submissions, and bilingual typing.</p>
+              <h3 className="text-base sm:text-lg font-bold text-white mt-1">Scanning, Portal Forms & Certificates</h3>
+              <p className="text-xs text-neutral-300 mt-1 max-w-md line-clamp-2 sm:line-clamp-none">Digital document conversion, government portal submissions, and bilingual typing.</p>
             </div>
           </div>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {filteredServices.map((service) => (
             <div
               key={service.id}
