@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --accent-primary: #0284c7;
+    --accent-light: #38bdf8;
+    --accent-hover: #0369a1;
+    --accent-contrast: #ffffff;
+    --accent-soft: rgba(2, 132, 199, 0.15);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  ::selection {
+    background-color: var(--accent-primary);
+    color: var(--accent-contrast);
+  }
+}
+
+.theme-accent-text {
+  color: var(--accent-primary);
+}
+
+.theme-accent-light-text {
+  color: var(--accent-light);
+}
+
+.theme-accent-bg {
+  background-color: var(--accent-primary);
+  color: var(--accent-contrast);
+}
+
+.theme-accent-bg:hover {
+  background-color: var(--accent-hover);
+}
+
+.theme-accent-border {
+  border-color: var(--accent-primary);
+}
+
+.theme-accent-soft-bg {
+  background-color: var(--accent-soft);
+}
+
+.font-display {
+  font-family: 'Cinzel', serif;
+}
+
+.font-sans-ui {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "SRIVIGNESH XEROX & ONLINE WORKS",
+  "description": "Premium 3D business showcase for SRIVIGNESH XEROX & ONLINE WORKS: digital printing, photocopy, online services, mobile accessories, and jewellery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
