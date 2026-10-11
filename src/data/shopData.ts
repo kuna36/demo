@@ -1,17 +1,29 @@
 import { ServiceItem, ProductItem, JewelleryItem, ShopContactInfo } from '../types.ts';
 
+import logoImg from '../assets/images/srivignesh_shop_logo_1791683450780.jpg';
+import heroImg from '../assets/images/hero_business_composite_1791648837640.jpg';
+import xeroxImg from '../assets/images/service_printing_xerox_1791648849547.jpg';
+import digitalImg from '../assets/images/service_digital_online_1791648862893.jpg';
+import accessoriesImg from '../assets/images/product_mobile_accessories_1791648873962.jpg';
+import jewelleryImg from '../assets/images/showcase_jewellery_collection_1791648885010.jpg';
+import cableChargerImg from '../assets/images/cable_charger_fast_1791650333580.jpg';
+import caseTemperedImg from '../assets/images/phone_case_tempered_1791650345597.jpg';
+import earbudsImg from '../assets/images/wireless_earbuds_audio_1791650357297.jpg';
+import banglesImg from '../assets/images/gold_finish_bangles_1791650367344.jpg';
+import jhumkaImg from '../assets/images/jhumka_earrings_drop_1791650380593.jpg';
+
 export const ASSET_IMAGES = {
-  logo: '/src/assets/images/srivignesh_shop_logo_1791683450780.jpg',
-  hero: '/src/assets/images/hero_business_composite_1791648837640.jpg',
-  xerox: '/src/assets/images/service_printing_xerox_1791648849547.jpg',
-  digital: '/src/assets/images/service_digital_online_1791648862893.jpg',
-  accessories: '/src/assets/images/product_mobile_accessories_1791648873962.jpg',
-  jewellery: '/src/assets/images/showcase_jewellery_collection_1791648885010.jpg',
-  cableCharger: '/src/assets/images/cable_charger_fast_1791650333580.jpg',
-  caseTempered: '/src/assets/images/phone_case_tempered_1791650345597.jpg',
-  earbuds: '/src/assets/images/wireless_earbuds_audio_1791650357297.jpg',
-  bangles: '/src/assets/images/gold_finish_bangles_1791650367344.jpg',
-  jhumka: '/src/assets/images/jhumka_earrings_drop_1791650380593.jpg',
+  logo: logoImg,
+  hero: heroImg,
+  xerox: xeroxImg,
+  digital: digitalImg,
+  accessories: accessoriesImg,
+  jewellery: jewelleryImg,
+  cableCharger: cableChargerImg,
+  caseTempered: caseTemperedImg,
+  earbuds: earbudsImg,
+  bangles: banglesImg,
+  jhumka: jhumkaImg,
 };
 
 export const INITIAL_SHOP_INFO: ShopContactInfo = {
